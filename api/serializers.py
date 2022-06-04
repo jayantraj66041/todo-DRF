@@ -6,16 +6,19 @@ from rest_framework import serializers
 class TodoSerializer(ModelSerializer):
     class Meta:
         model = TodoModel
-        fields = "__all__"
+        fields = ['id', 'work']
 
-    def save(self):
-        request = self.context.get("request")
-        todo = TodoModel()
-        todo.work = self.validated_data['work']
-        todo.user = request.user
-        todo.save()
+        # extra_kwargs = {
+        #     'user': {"read_only": True}
+        # }
 
-        return todo
+    # def save(self):
+    #     todo = TodoModel()
+    #     todo.work = self.validated_data['work']
+    #     todo.user = self.context['request'].user
+    #     todo.save()
+
+    #     return todo
 
 class SignUpSerializer(ModelSerializer):
     password2 = serializers.CharField(write_only=True)
