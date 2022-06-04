@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api.apps.ApiConfig',
-    'rest_framework',
-    'rest_framework_simplejwt',
+    'api.apps.ApiConfig',           # New App added here.
+    'rest_framework',               # DRF liberary added here.
+    'rest_framework_simplejwt',     # JWT authorization liberary added here.
 ]
 
 MIDDLEWARE = [

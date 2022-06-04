@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # redirect every request starts with api/ transfered to api urls
     path("api/", include("api.urls")),
 ]
