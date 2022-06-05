@@ -54,7 +54,7 @@ class Todo(APIView):
 
     # update or change perform on the existing list 
     def put(self, request, id):
-        todo = TodoModel.objects.get(id=id)
+        todo = TodoModel.objects.get(id=id, user=request.user)
 
         if todo.user.id == request.user.id:
             serializer = TodoSerializer(todo, data=request.data)
@@ -69,7 +69,7 @@ class Todo(APIView):
 
     # for delete any list item of work
     def delete(self, request, id):
-        todo = TodoModel.objects.get(id=id)
+        todo = TodoModel.objects.get(id=id, user=request.user)
 
         if todo.user.id == request.user.id:
             todo.delete()
